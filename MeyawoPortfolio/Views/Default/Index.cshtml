@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@Html.Partial("~/Views/Default/HeadPartial.cshtml")
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    @Html.Partial("~/Views/Default/NavbarPartial.cshtml")
+    <!-- page header -->
+    @Html.Action("FeaturePartial")
+    <!-- end of page header -->
+    <!-- about section -->
+    @Html.Action("AboutPartial")
+    <!-- end of about section -->
+    <!-- service section -->
+    @Html.Action("ServicePartial")
+    <!-- end of service section -->
+    <!-- portfolio section -->
+   @Html.Action("PortfolioPartial")
+    <!-- end of portfolio section -->
+    <!--Section-->
+    @Html.Action("SectionPartial")
+    <!--end of section-->
+    <!-- testimonial section -->
+    @Html.Action("TestPartial")
+    <!-- end of testimonial section -->
+
+    <!-- contact section -->
+    @Html.Action("ContactPartial")
+    <!-- end of contact section -->
+
+    <!-- footer -->
+    @Html.Action("FooterPartial")
+     <!-- end of page footer -->
+
+
+    <!-- core  -->
+
+    <script src="~/Template/meyawo/assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="~/Template/meyawo/assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="~/Template/meyawo/assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="~/Template/meyawo/assets/js/meyawo.js"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,23 @@
+﻿@model MeyawoPortfolio.Models.TBLSERVİCE
+@{
+    ViewBag.Title = "UpdateService";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hizmet güncelleme sayfası</h2>
+
+<form method="post">
+    <label>hizmet id</label>
+    <input type="text" class="table table-bordered" value="@Model.ServiceID" name="ServiceID" />
+    <br />
+    <label>hizmet başlıgı</label>
+    <input type="text" class="table table-bordered" value="@Model.Title" name="Title" />
+    <br />
+    <label>hizmet görseli</label>
+    <input type="text" class="table table-bordered" value="@Model.ImageUrl" name="ImageUrl" />
+    <label>hizmet açıklaması</label>
+    <textarea rows="5" class="table table-bordered"  name="Description">@Model.Description</textarea>
+    <br />
+    <button class="btn btn-outline-info">İsim Güncelle</button>
+</form>
+

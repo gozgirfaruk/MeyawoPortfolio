@@ -1,0 +1,31 @@
+﻿@using MeyawoPortfolio.Models
+@model List<TBLTESTIMONIAL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="border-color:slategray">
+    <h2>
+        REFEREANSLARIM
+    </h2>
+</div>
+
+<table class="table table-bordered">
+   <tr>
+       <th>Ad Soyad</th>
+       <th>Düşünceleri</th>
+       <th>İletişim</th>
+   </tr>
+
+    @foreach(var rfc in Model)
+            {
+                <tr>
+                    <td>@rfc.NameSurname</td>
+                    <td>@rfc.Description</td>
+                    <td><a href=@rfc.Linkedin class="btn btn-outline-primary">Linkedin</a></td>
+
+                </tr>
+            }
+
+</table>

@@ -1,0 +1,32 @@
+﻿@model MeyawoPortfolio.Models.TBLCONTACT
+
+<form method="post">
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">Nasıl iletişim kurabilirsiniz?</p>
+            <h6 class="section-title mb-5">İletişime Geç</h6>
+            <!-- contact form -->
+            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                        <label>Ad Soyad</label>
+                        @Html.TextBoxFor(x => x.NameSurname, new { @class ="table table-bordered" })
+                    </div>
+                    
+                    <div class="form-group col-sm-6">
+                        <label>E-Posta Adresi</label>
+                        @Html.TextBoxFor(x => x.EMail, new { @class ="table table-bordered" })
+                    </div>
+                    
+                    <div class="form-group col-sm-12">
+                        <label>Mesaj</label>
+                        @Html.TextBoxFor(x => x.Message, new { @class = "table table-bordered" })
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                    </div>
+                </div>
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section>
+</form>

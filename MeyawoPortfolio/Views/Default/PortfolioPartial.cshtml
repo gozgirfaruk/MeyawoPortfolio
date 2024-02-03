@@ -1,0 +1,31 @@
+﻿@using MeyawoPortfolio.Models
+@model List<TBLPROJECT>
+
+
+<section class="section" id="portfolio">
+    <div class="container text-center">
+        <p class="section-subtitle">Neler Yaptım ?</p>
+        <h6 class="section-title mb-6">Portföy</h6>
+        <!-- row -->
+    
+        <div class="row">
+            @foreach( var k in Model)
+            {
+            <div class="col-md-4">
+                <a href="@k.ProjectUrl" class="portfolio-card">
+                    <img src="@k.ImageUrl" class="portfolio-card-img" >
+                    <span class="portfolio-card-overlay">
+                        <span class="portfolio-card-caption">
+                            <h4>@k.Title</h4>
+                                <p class="font-weight-normal">@k.Description</p>
+                        </span>
+                        
+                    </span>
+                </a>
+            </div>
+            }
+        </div>
+    
+    <!-- end of row -->
+    </div><!-- end of container -->
+</section>

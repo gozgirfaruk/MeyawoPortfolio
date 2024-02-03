@@ -1,0 +1,27 @@
+﻿@model MeyawoPortfolio.Models.TBLABOUT
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bilgileri Güncelle</h2>
+
+<form method="post">
+    <label>Alt Başlık</label>
+    <input type="text" class="table table-bordered" value="@Model.AboutID" name="AboutID"  readonly/>
+    <br />
+    <label>Alt Başlık</label>
+    <input type="text" class="table table-bordered" value="@Model.Title" name="Title" />
+    <br />
+    <label>Ana Başlık</label>
+    <input type="text" class="table table-bordered" value="@Model.Header" name="Header" />
+    <br />
+    <label>Açıklama</label>
+    <input type="text" class="table table-bordered" value="@Model.Description" name="Description" />
+    <br />
+    <label>Resim Yolu</label>
+    <input type="text" class="table table-bordered" value="@Model.ImageUrl" name="ImageUrl" />
+    <br />
+    <button class="btn btn-outline-info">Güncelle</button>
+</form>

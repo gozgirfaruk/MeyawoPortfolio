@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBMyPortfolioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TBLABOUT">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Header" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBLADMINSIDEBAR">
+          <Key>
+            <PropertyRef Name="AdminSideBarId" />
+          </Key>
+          <Property Name="AdminSideBarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SidebarTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="CoverImgUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProfileImgUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBLCATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLCONTACT">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SendDate" Type="smalldatetime" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="MessageCategory" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLEDUCATION">
+          <Key>
+            <PropertyRef Name="SchoolId" />
+          </Key>
+          <Property Name="SchoolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="varchar" MaxLength="50" />
+          <Property Name="SchollCity" Type="varchar" MaxLength="50" />
+          <Property Name="SchollStatus" Type="varchar" MaxLength="50" />
+          <Property Name="SchoolPoint" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="TBLFUTURE">
+          <Key>
+            <PropertyRef Name="FutureID" />
+          </Key>
+          <Property Name="FutureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Header" Type="nvarchar" MaxLength="50" />
+          <Property Name="NameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLPROJECT">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProjectUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProjectCategory" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLSERVİCE">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBLSOCIALMEDIA">
+          <Key>
+            <PropertyRef Name="SocialMeadiID" />
+          </Key>
+          <Property Name="SocialMeadiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="SocialMediaUrl" Type="nvarchar" MaxLength="150" />
+          <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLTESTIMONIAL">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSurname" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Linkedin" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_TBLPROJECT_TBLCATEGORY">
+          <End Role="TBLCATEGORY" Type="Self.TBLCATEGORY" Multiplicity="0..1" />
+          <End Role="TBLPROJECT" Type="Self.TBLPROJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="TBLPROJECT">
+              <PropertyRef Name="ProjectCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="LASTPROJECTNAME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="DBMyPortfolioModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLADMINSIDEBAR" EntityType="Self.TBLADMINSIDEBAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLEDUCATION" EntityType="Self.TBLEDUCATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLFUTURE" EntityType="Self.TBLFUTURE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPROJECT" EntityType="Self.TBLPROJECT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSERVİCE" EntityType="Self.TBLSERVİCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSOCIALMEDIA" EntityType="Self.TBLSOCIALMEDIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTESTIMONIAL" EntityType="Self.TBLTESTIMONIAL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLPROJECT_TBLCATEGORY" Association="Self.FK_TBLPROJECT_TBLCATEGORY">
+            <End Role="TBLCATEGORY" EntitySet="TBLCATEGORY" />
+            <End Role="TBLPROJECT" EntitySet="TBLPROJECT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBMyPortfolioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TBLABOUT">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBLCATEGORY">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBLPROJECT" Relationship="Self.FK_TBLPROJECT_TBLCATEGORY" FromRole="TBLCATEGORY" ToRole="TBLPROJECT" />
+        </EntityType>
+        <EntityType Name="TBLCONTACT">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SendDate" Type="DateTime" Precision="0" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="MessageCategory" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLFUTURE">
+          <Key>
+            <PropertyRef Name="FutureID" />
+          </Key>
+          <Property Name="FutureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLPROJECT">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectCategory" Type="Int32" />
+          <NavigationProperty Name="TBLCATEGORY" Relationship="Self.FK_TBLPROJECT_TBLCATEGORY" FromRole="TBLPROJECT" ToRole="TBLCATEGORY" />
+        </EntityType>
+        <EntityType Name="TBLSERVİCE">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLSOCIALMEDIA">
+          <Key>
+            <PropertyRef Name="SocialMeadiID" />
+          </Key>
+          <Property Name="SocialMeadiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialMediaUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLTESTIMONIAL">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Linkedin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_TBLPROJECT_TBLCATEGORY">
+          <End Role="TBLCATEGORY" Type="Self.TBLCATEGORY" Multiplicity="0..1" />
+          <End Role="TBLPROJECT" Type="Self.TBLPROJECT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLCATEGORY">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="TBLPROJECT">
+              <PropertyRef Name="ProjectCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBMyPortfolioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TBLABOUT" EntityType="Self.TBLABOUT" />
+          <EntitySet Name="TBLCATEGORY" EntityType="Self.TBLCATEGORY" />
+          <EntitySet Name="TBLCONTACT" EntityType="Self.TBLCONTACT" />
+          <EntitySet Name="TBLFUTURE" EntityType="Self.TBLFUTURE" />
+          <EntitySet Name="TBLPROJECT" EntityType="Self.TBLPROJECT" />
+          <EntitySet Name="TBLSERVİCE" EntityType="Self.TBLSERVİCE" />
+          <EntitySet Name="TBLSOCIALMEDIA" EntityType="Self.TBLSOCIALMEDIA" />
+          <EntitySet Name="TBLTESTIMONIAL" EntityType="Self.TBLTESTIMONIAL" />
+          <AssociationSet Name="FK_TBLPROJECT_TBLCATEGORY" Association="Self.FK_TBLPROJECT_TBLCATEGORY">
+            <End Role="TBLCATEGORY" EntitySet="TBLCATEGORY" />
+            <End Role="TBLPROJECT" EntitySet="TBLPROJECT" />
+          </AssociationSet>
+          <EntitySet Name="TBLADMINSIDEBAR" EntityType="DBMyPortfolioModel.TBLADMINSIDEBAR" />
+          <EntitySet Name="TBLEDUCATION" EntityType="DBMyPortfolioModel.TBLEDUCATION" />
+          <FunctionImport Name="LASTPROJECTNAME" ReturnType="Collection(String)" />
+        </EntityContainer>
+        <EntityType Name="TBLADMINSIDEBAR">
+          <Key>
+            <PropertyRef Name="AdminSideBarId" />
+          </Key>
+          <Property Name="AdminSideBarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SidebarTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CoverImgUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileImgUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLEDUCATION">
+          <Key>
+            <PropertyRef Name="SchoolId" />
+          </Key>
+          <Property Name="SchoolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchollCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchollStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolPoint" Type="Byte" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBMyPortfolioModelStoreContainer" CdmEntityContainer="DBMyPortfolioEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLABOUT">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLABOUT">
+              <MappingFragment StoreEntitySet="TBLABOUT">
+                <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCATEGORY">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLCATEGORY">
+              <MappingFragment StoreEntitySet="TBLCATEGORY">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLCONTACT">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLCONTACT">
+              <MappingFragment StoreEntitySet="TBLCONTACT">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="MessageCategory" ColumnName="MessageCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLFUTURE">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLFUTURE">
+              <MappingFragment StoreEntitySet="TBLFUTURE">
+                <ScalarProperty Name="FutureID" ColumnName="FutureID" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPROJECT">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLPROJECT">
+              <MappingFragment StoreEntitySet="TBLPROJECT">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ProjectUrl" ColumnName="ProjectUrl" />
+                <ScalarProperty Name="ProjectCategory" ColumnName="ProjectCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSERVİCE">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLSERVİCE">
+              <MappingFragment StoreEntitySet="TBLSERVİCE">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSOCIALMEDIA">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLSOCIALMEDIA">
+              <MappingFragment StoreEntitySet="TBLSOCIALMEDIA">
+                <ScalarProperty Name="SocialMeadiID" ColumnName="SocialMeadiID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SocialMediaUrl" ColumnName="SocialMediaUrl" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTESTIMONIAL">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLTESTIMONIAL">
+              <MappingFragment StoreEntitySet="TBLTESTIMONIAL">
+                <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+                <ScalarProperty Name="TestimonialID" ColumnName="TestimonialID" />
+                <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLADMINSIDEBAR">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLADMINSIDEBAR">
+              <MappingFragment StoreEntitySet="TBLADMINSIDEBAR">
+                <ScalarProperty Name="ProfileImgUrl" ColumnName="ProfileImgUrl" />
+                <ScalarProperty Name="CoverImgUrl" ColumnName="CoverImgUrl" />
+                <ScalarProperty Name="SidebarTitle" ColumnName="SidebarTitle" />
+                <ScalarProperty Name="AdminSideBarId" ColumnName="AdminSideBarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLEDUCATION">
+            <EntityTypeMapping TypeName="DBMyPortfolioModel.TBLEDUCATION">
+              <MappingFragment StoreEntitySet="TBLEDUCATION">
+                <ScalarProperty Name="SchoolPoint" ColumnName="SchoolPoint" />
+                <ScalarProperty Name="SchollStatus" ColumnName="SchollStatus" />
+                <ScalarProperty Name="SchollCity" ColumnName="SchollCity" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LASTPROJECTNAME" FunctionName="DBMyPortfolioModel.Store.LASTPROJECTNAME" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

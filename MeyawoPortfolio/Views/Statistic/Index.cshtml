@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        const xValues = ["Görüntülenme", "Atılan Mesaj", "Toplam Proje", "Kategori","Referans"];
+        const yValues = [45, 3, 3, 4, 2];
+        const barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "fe6243"
+            
+        ];
+
+        new Chart("myChart", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Uygulama Hareket Şeması 2024 "
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+<h2>İstatistikler</h2>
+<div class="alert-danger">TOPLAM KATEGORİ SAYISI : @ViewBag.categoryCount</div>
+<br />
+<div class="alert-dark">TOPLAM PROJE SAYISI : @ViewBag.projectCount</div>
+<br />
+<div class="alert-warning">EN SON ÇALIŞILAN PROJE ADI : @ViewBag.lastProjectName</div>
+<br />
+<div class="alert-secondary">TOPLAM MESAJ SAYISI : @ViewBag.messageCount</div>
+<br />
+<div class="alert-success">OKUNAN MESAJ SAYISI: @ViewBag.isReadMessageCount</div>
+<br />
+<div class="alert-info">TOPLAM REFERANS SAYISI: @ViewBag.referansSay</div>
+<br />
+<div class="alert-primary">AKTİF SOSYAL MEDYA HESABI: @ViewBag.deneme</div>
+
+
+

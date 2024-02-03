@@ -1,0 +1,34 @@
+﻿@using MeyawoPortfolio.Models
+@model List<TBLCATEGORY>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding-left:100px" class="background-color:slategray">
+    <h2>HİZMET VERDİĞİM KATEGORİLER</h2>
+</div>
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+
+    @foreach (var ktg in Model)
+    {
+<tr>
+
+    <td>@ktg.CategoryName</td>
+    <td><a href="/Category/Update/@ktg.CategoryID" class="btn btn-outline-warning">Güncelle</a></td>
+    <td><a href="/Category/Delete/@ktg.CategoryID" class="btn btn-outline-danger">Sil</a></td>
+
+</tr>
+
+    }
+</table>
+<br />
+<td><a href="/Category/CreateCategory" class="btn btn-outline-success">Yeni Kategori Ekle</a></td>
