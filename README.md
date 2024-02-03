@@ -1,4 +1,4 @@
-# Merhaba 👋,
+
 ## Admin Panelli Özgeçmiş Oluşturma Sitesi
 
 # Uygulama Genel Hatları :
