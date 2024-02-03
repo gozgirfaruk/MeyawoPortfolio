@@ -47,7 +47,8 @@
 
 # UI Hakkımda Sayfası
 
-![Ekran Görüntüsü (78)](https://github.com/gozgirfaruk/MeyawoPortfolio/assets/125920944/d7c8f581-9420-4d89-b8e0-31831da4dfcb)
+![Ekran Görüntüsü (79)](https://github.com/gozgirfaruk/MeyawoPortfolio/assets/125920944/341c6303-5612-4f9e-9371-bb5ccc5a7bfc)
+
 
 # DataBase Diagram :
 
