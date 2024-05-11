@@ -1,29 +1,28 @@
 
 ## Admin Panelli Özgeçmiş Oluşturma Sitesi
 
-# Uygulama Genel Hatları :
-### ->Bu proje, kullanıcıların admin paneli ile hızlı bir şekilde kendi Özgeçmiş  sitesini oluşturmalarını sağlar.
-### ->Kullanıcı dostu bir tasarıma sahip olup anlaşılır görseller kullanılmıştır.
-### ->Ayrıca dinamik bir yapıda olmasından dolayı kullanıcılar değişiklik yapmakta özgürler.
+## Uygulama Hakkında 
+* Bu proje, kullanıcıların admin paneli ile hızlı bir şekilde kendi Özgeçmiş  sitesini oluşturmalarını sağlar.
+* Kulllanıcı dostu bir tasarıma sahip olup anlaşılır görseller kullanılmıştır.
+* Ayrıca dinamik bir yapıda olmasından dolayı kullanıcılar değişiklik yapmakta özgürler.
 
-## Proje Tanım:
-#### Proje admin paneli ve kullanıcı paneli olarak iki panel üzerinden ilerler.
-#### Admin Paneli : Kullanıcının genel yeteneklerine göre içerikleri düzenleyebilir, yeni içerikler ekleyebilir veya var olan içeriği kaldırabilir.
-#### Kullanıcılar birbirlerine refars olabilir ve bunu listeleyebilir.
-#### Hareket tablosunu görüntüleyebilir, geliştirilmiş görseller ile takip edilmesi daha kolay.
-#### Kullanıcı paneli üzerinde sosyal medya hesaplarına ulaşılabilir ve .pdf formatında cv indirebilir
+## ℹ️ Proje Tanım:
+* Proje admin paneli ve kullanıcı paneli olarak iki panel üzerinden ilerler.
+* Admin Paneli : Kullanıcının genel yeteneklerine göre içerikleri düzenleyebilir, yeni içerikler ekleyebilir veya var olan içeriği kaldırabilir.
+* Kullanıcılar birbirlerine refars olabilir ve bunu listeleyebilir.
+* Hareket tablosunu görüntüleyebilir, geliştirilmiş görseller ile takip edilmesi daha kolay.
+* Kullanıcı paneli üzerinde sosyal medya hesaplarına ulaşılabilir ve .pdf formatında cv indirebilir
 
-## Proje Bileşenleri
-#### -->Asp.Net Web Application (.Net)
-#### --> Ado.Net (Entity Framework)
-#### --> DbFirst yaklaşımı ile geliştirilmiştir.
+## 💻 Proje Bileşenleri
+* Asp.Net Web Application (.Net)
+* Ado.Net (Entity Framework)
+* DbFirst yaklaşımı ile geliştirilmiştir.
 
 
 
-# UYGULAMA İÇİ GÖRÜNTÜLER
+# 🖼️ UYGULAMA İÇİ GÖRÜNTÜLER
 
-## Sayfa Yönetimi
-#### Admin Paneli ile beraber kullanıcılar ekleme silme güncelleme işlerini anlık olarak yapıp görüntüleyebilir.Daha fazla özelleştirmelerde bulunabilir.
+
 # Admin Dashboard Sayfası :
 #### Kullanıcılar hareketleri takip edebilir. Anlık olarak grafiğe dönüştürülmesi sayesinde takip edilmesi çok daha kolay.
 
